@@ -3,9 +3,9 @@
 
 
 $dados = [
-    "nome" => [$_POST['nome']],
-    "email" => [$_POST['email']],
-    "msg" => [$_POST['msg']]
+    "nome" => $_POST['nome'],
+    "email" => $_POST['email'],
+    "msg" => $_POST['msg']
 ];
 
 print_r($dados);
@@ -23,17 +23,25 @@ print_r($dados);
 
 <pre>
     <h1>Nome: </h1>
-    <p> <?php echo $dados["nome"][0]?></p>
+    <p> <?php echo $dados["nome"]?></p>
     
 
     <h1>Email: </h1>
-    <p> <?php echo $dados["email"][0]?></p>
+    <p> <?php echo $dados["email"]?></p>
     
 
     <h1>Texto: </h1>
-    <p> <?php echo $dados["msg"][0]?></p>
+    <p> <?php echo $dados["msg"]?></p>
 
     <h1>Quantos elementos foram enviados pelo formulário: <?php echo count($dados)?></h1>
+
+    <?php echo "<h1>Exibindo os elementos e o indice com ForEach</h1>";
+
+    foreach($dados as $index => $valor){
+        echo "Indice [$index] = $valor"."<br>";
+    }
+
+    ?>
     
 </pre>
 </body>
